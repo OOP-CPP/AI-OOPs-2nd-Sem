@@ -22,7 +22,7 @@ To submit an assignment, follow these steps:
 2. **Clone Your Fork**: Clone the forked repository to your local machine using the following command in your terminal:
 
    ```
-   git clone https://github.com/your-username/oops-class.git
+   git clone https://github.com/your-username/AI-OOPs-2nd-Sem.git
    ```
 
 3. **Create a Branch**: Create a new branch for your assignment using the following command:
