@@ -27,7 +27,7 @@ public:
     }
 
     void display() const {
-        cout << hrs << " hrs, " << min << " mint, " << sec << " sec." << endl;
+        cout << hrs << " hrs, " << mint << " min, " << sec << " sec." << endl;
     }
 };
 
