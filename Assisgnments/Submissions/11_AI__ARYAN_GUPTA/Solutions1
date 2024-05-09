@@ -1,0 +1,194 @@
+**//////////////////**
+///**SOLUTION 1**///
+**/////////////////**
+#include <iostream>
+using namespace std;
+
+class complex
+{
+private:
+    int a;
+    int b;
+
+public:
+    void setData(int v1, int v2)
+    {
+        a = v1;
+        b = v2;
+    }
+    void Sum(complex o1, complex o2)
+    {
+        a = o1.a + o2.a;
+        b = o1.b + o2.b;
+    }
+    void printNumber()
+    {
+        cout << "Your complex no. is:" << a << " + " << b << "i" << endl;
+    }
+};
+
+int main()
+{
+    complex c1, c2, c3;
+
+    c1.setData(12, 34);
+    c1.printNumber();
+
+    c2.setData(3, 8);
+    c2.printNumber();
+
+    cout << "Performing Sum:-" << endl;
+    c3.Sum(c1, c2);
+    c3.printNumber();
+    return 0;
+}
+
+
+**//////////////////**
+///**SOLUTION 2**///
+**/////////////////**
+
+#include <iostream>
+using namespace std;
+
+class time
+{
+private:
+    int a;
+    int b;
+    int c;
+
+public:
+    void setData(int v1, int v2, int v3)
+    {
+        a = v1;
+        b = v2;
+        c = v3;
+    }
+    void Sum(time o1, time o2)
+    {
+        a = o1.a + o2.a;
+        b = o1.b + o2.b;
+        c = o1.c + o2.c;
+    }
+    void printNumber()
+    {
+        cout << "Your time is:" << a << "hr," << b << "min," << c << "sec" << endl;
+    }
+};
+
+int main()
+{
+    int h1, m1, s1;
+    int h2, m2, s2;
+
+    cout << "Enter the First time:-" << endl;
+    cout << "In hours:";
+    cin >> h1;
+    cout << "In minutes:";
+    cin >> m1;
+    cout << "In seconds:";
+    cin >> s1;
+    cout << "\n";
+
+    cout << "Enter the Second time:-" << endl;
+    cout << "In hours:";
+    cin >> h2;
+    cout << "In minutes:";
+    cin >> m2;
+    cout << "In seconds:";
+    cin >> s2;
+
+    time o1, o2, o3;
+
+    o1.setData(h1, m1, s1);
+    o1.printNumber();
+    o2.setData(h2, m2, s2);
+    o2.printNumber();
+
+    cout << "Performing Sum:" << endl;
+    o3.Sum(o1, o2);
+    o3.printNumber();
+    return 0;
+}
+
+
+**//////////////////**
+///**SOLUTION 3**///
+**/////////////////**
+
+#include <iostream>
+
+using namespace std;
+
+// Function to check if the year is a leap year
+bool isLeapYear(int year)
+{
+    return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+}
+
+// Function to get the number of days in a month
+int getDaysInMonth(int month, int year)
+{
+    if (month == 2)
+    {
+        return isLeapYear(year) ? 29 : 28;
+    }
+    else if (month == 4 || month == 6 || month == 9 || month == 11)
+    {
+        return 30;
+    }
+    else
+    {
+        return 31;
+    }
+}
+
+// Function to print the calendar of a given year
+void printCalendar(int year)
+{
+    cout << "Calendar for the year " << year << ":" << endl;
+
+    for (int month = 1; month <= 12; month++)
+    {
+        cout << "\n\n" << month << "/" << year << ":" << endl;
+        cout << "Sun Mon Tue Wed Thu Fri Sat" << endl;
+
+        int startingDay = 1;
+
+        // Adjust the starting day of the week for January 1st
+        if (month > 1)
+        {
+            for (int m = 1; m < month; m++)
+            {
+                startingDay += getDaysInMonth(m, year);
+            }
+        }
+        startingDay %= 7;
+
+        // Print leading spaces
+        for (int i = 0; i < startingDay; i++)
+        {
+            cout << "    ";
+        }
+
+        // Print days of the month
+        int daysInMonth = getDaysInMonth(month, year);
+        for (int day = 1; day <= daysInMonth; day++)
+        {
+            cout << (day < 10 ? " " : "") << day << "  ";
+            if ((day + startingDay) % 7 == 0 || day == daysInMonth)
+            {
+                cout << endl;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int year = 2024;
+    printCalendar(year);
+    return 0;
+}
+
