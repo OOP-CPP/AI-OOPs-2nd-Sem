@@ -23,3 +23,6 @@ int main()
    obj.print(); 
    return 0; 
 } 
+
+//The this pointer in C++ holds the memory address of the class instance (i.e., object) that is
+//being called from the member function, allowing those functions to access the correct data members of that specific object.
