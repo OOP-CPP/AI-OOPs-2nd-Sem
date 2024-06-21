@@ -1,0 +1,17 @@
+#include <iostream>
+class MyClass {
+private:
+    int attribute;
+public:
+    MyClass(int attribute) {
+        this->attribute = attribute;
+    }
+    void printAttribute() {
+        std::cout << "The attribute value is: " << this->attribute << std::endl;
+    }
+};
+int main() {
+    MyClass obj(10);
+    obj.printAttribute();
+    return 0;
+}
